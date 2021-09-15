@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ímagen1 from './img/img002.jpg';
 
 function App() {
+  console.log("process: ", process);
+  console.log("P env: ", process.env);
+  console.log("P vers: ", process.versions);
+  console.log("P ver: ", process.version);
+  console.log("P title: ", process.title);
+  console.log("P browser: ", process.browser);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      CONSULTAS REACT
+      <div>
+        <img src={ímagen1} alt="imagen 1" width="200" height="200"/>
+        <br/>
+        {/* <img src={ímagen2} alt="imagen 2"/> */}
+        <img src={`${process.env.PUBLIC_URL}/assets/img/img151.jpg`} alt="imagen 2"/>
+      </div>
     </div>
   );
 }
