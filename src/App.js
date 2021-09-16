@@ -6,7 +6,7 @@ function App() {
   console.log("REACT_APP_API: ", process.env.REACT_APP_API);
   return (
     <div className="App">
-      CONSULTAS REACT 2
+      CONSULTAS REACT
       <div>
         <img src={`${process.env.PUBLIC_URL}/assets/img/img151.jpg`} alt="imagen 2"/>
       </div>
