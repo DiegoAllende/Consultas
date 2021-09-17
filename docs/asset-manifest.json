@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.a1cb956b.chunk.css",
-    "main.js": "./static/js/main.6f54b4c0.chunk.js",
-    "main.js.map": "./static/js/main.6f54b4c0.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.207301c0.js",
-    "runtime-main.js.map": "./static/js/runtime-main.207301c0.js.map",
-    "static/js/2.8b7a5b5b.chunk.js": "./static/js/2.8b7a5b5b.chunk.js",
-    "static/js/2.8b7a5b5b.chunk.js.map": "./static/js/2.8b7a5b5b.chunk.js.map",
-    "static/js/3.4f547712.chunk.js": "./static/js/3.4f547712.chunk.js",
-    "static/js/3.4f547712.chunk.js.map": "./static/js/3.4f547712.chunk.js.map",
-    "index.html": "./index.html",
-    "static/css/main.a1cb956b.chunk.css.map": "./static/css/main.a1cb956b.chunk.css.map",
-    "static/js/2.8b7a5b5b.chunk.js.LICENSE.txt": "./static/js/2.8b7a5b5b.chunk.js.LICENSE.txt",
-    "static/media/authStyle.css": "./static/media/login.d5117418.jpg",
-    "static/media/logoD.5aa0a60a.png": "./static/media/logoD.5aa0a60a.png"
+    "main.css": "/diegoallende.github.io/Consultas/static/css/main.c730e7f9.chunk.css",
+    "main.js": "/diegoallende.github.io/Consultas/static/js/main.1e48a7de.chunk.js",
+    "main.js.map": "/diegoallende.github.io/Consultas/static/js/main.1e48a7de.chunk.js.map",
+    "runtime-main.js": "/diegoallende.github.io/Consultas/static/js/runtime-main.af59a071.js",
+    "runtime-main.js.map": "/diegoallende.github.io/Consultas/static/js/runtime-main.af59a071.js.map",
+    "static/js/2.41639d46.chunk.js": "/diegoallende.github.io/Consultas/static/js/2.41639d46.chunk.js",
+    "static/js/2.41639d46.chunk.js.map": "/diegoallende.github.io/Consultas/static/js/2.41639d46.chunk.js.map",
+    "static/js/3.4f547712.chunk.js": "/diegoallende.github.io/Consultas/static/js/3.4f547712.chunk.js",
+    "static/js/3.4f547712.chunk.js.map": "/diegoallende.github.io/Consultas/static/js/3.4f547712.chunk.js.map",
+    "index.html": "/diegoallende.github.io/Consultas/index.html",
+    "static/css/main.c730e7f9.chunk.css.map": "/diegoallende.github.io/Consultas/static/css/main.c730e7f9.chunk.css.map",
+    "static/js/2.41639d46.chunk.js.LICENSE.txt": "/diegoallende.github.io/Consultas/static/js/2.41639d46.chunk.js.LICENSE.txt",
+    "static/media/authStyle.css": "/diegoallende.github.io/Consultas/static/media/login.d5117418.jpg",
+    "static/media/logoD.5aa0a60a.png": "/diegoallende.github.io/Consultas/static/media/logoD.5aa0a60a.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.207301c0.js",
-    "static/js/2.8b7a5b5b.chunk.js",
-    "static/css/main.a1cb956b.chunk.css",
-    "static/js/main.6f54b4c0.chunk.js"
+    "static/js/runtime-main.af59a071.js",
+    "static/js/2.41639d46.chunk.js",
+    "static/css/main.c730e7f9.chunk.css",
+    "static/js/main.1e48a7de.chunk.js"
   ]
 }

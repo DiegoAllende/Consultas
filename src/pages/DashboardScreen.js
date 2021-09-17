@@ -2,8 +2,8 @@ import React from 'react'
 
 export const DashboardScreen = () => {
   return (
-    <div>
+    <section className="dashboard">
       DASHBOARD
-    </div>
+    </section>
   )
 }
