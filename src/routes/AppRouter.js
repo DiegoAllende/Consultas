@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Redirect, HashRouter } from 'react-router-dom'
 import { AuthRouter } from './AuthRouter'
 import { PagesRouter } from './PagesRouter'
 import { PrivateRouter } from './PrivateRouter'
@@ -8,7 +8,7 @@ import { PublicRouter } from './PublicRouter'
 export const AppRouter = () => {
   const valLogin = false;
   return (
-    <Router>
+    <HashRouter>
       <div>
         <Switch>
           <PublicRouter isAuthenticated={valLogin} path="/auth" component={AuthRouter}/>
@@ -16,6 +16,6 @@ export const AppRouter = () => {
           <Redirect to="/auth" />
         </Switch>
       </div>
-    </Router>
+    </HashRouter>
   )
 }
