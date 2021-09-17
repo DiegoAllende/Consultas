@@ -12,7 +12,7 @@ export const RegisterScreen = () => {
   }
 
   const history = useHistory();
-  const { formu, errors, handleChange, handleBlur } = useFormu(InitialFormu, validationsForm);
+  const { formu, errors, handleChange } = useFormu(InitialFormu, validationsForm);
   const { user, pass, pass2 } = formu;
 
   const handleRegister = (e) => {
@@ -23,12 +23,12 @@ export const RegisterScreen = () => {
   return (
     <section className="login">
       <aside className="login-content">
-        <img src={logo} title="logo" />
+        <img src={logo} title="logo" alt="logo"/>
         <h3>REGISTRO</h3>
         <form autoComplete="off" noValidate onSubmit={handleRegister}>
-          <TextField onChange={handleChange} onBlur={handleBlur} value={user} name="user" error={errors?.user} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />
-          <TextField onChange={handleChange} onBlur={handleBlur} value={pass} name="pass" error={errors?.pass} helperText={errors?.pass} label="Contraseña" variant="outlined" size="small" fullWidth />
-          <TextField onChange={handleChange} onBlur={handleBlur} value={pass2} name="pass2" error={errors?.pass2} helperText={errors?.pass2} label="Repetir Contraseña" variant="outlined" size="small" fullWidth />
+          <TextField onChange={handleChange} value={user} name="user" error={errors?.user} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />
+          <TextField onChange={handleChange} value={pass} name="pass" error={errors?.pass} helperText={errors?.pass} label="Contraseña" variant="outlined" size="small" fullWidth />
+          <TextField onChange={handleChange} value={pass2} name="pass2" error={errors?.pass2} helperText={errors?.pass2} label="Repetir Contraseña" variant="outlined" size="small" fullWidth />
           <Button type="submit" variant="contained" color="primary" fullWidth >Registrar</Button>
           <Button variant="contained" color="primary" onClick={() => history.push('/auth/login')} fullWidth>Login</Button>
         </form>

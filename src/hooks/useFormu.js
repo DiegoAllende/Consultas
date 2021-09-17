@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useFormu = (initialState = {}, validationsForm) => {
   const [formu, setFormu] = useState(initialState);
@@ -14,8 +14,12 @@ export const useFormu = (initialState = {}, validationsForm) => {
     );
   }
 
-  const handleBlur = () => {
+  useEffect(() => {
     setErrors(validationsForm(formu));
+  }, [formu])
+
+  const handleBlur = () => {
+    // setErrors(validationsForm(formu));
   }
 
   return { formu, errors, handleChange, handleBlur }

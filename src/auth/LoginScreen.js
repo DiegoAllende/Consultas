@@ -23,7 +23,7 @@ export const LoginScreen = () => {
   }
 
   const history = useHistory();
-  const { formu, errors, handleChange, handleBlur } = useFormu(InitialFormu, validationsForm);
+  const { formu, errors, handleChange } = useFormu(InitialFormu, validationsForm);
   const { user, pass } = formu;
 
   const handleLogIn = (e) => {
@@ -36,11 +36,11 @@ export const LoginScreen = () => {
       <aside className="login-content">
         {/* <img src={`${process.env.PUBLIC_URL}/assets/img/logoD.png`} alt="imagen 2"/> */}
         {/* <img src='../assets/img/logoD.png' title="logo2" /> */}
-        <img src={logo} title="logo" />
+        <img src={logo} title="logo" alt="logo" />
         <h3>MI CUENTA</h3>
         <form autoComplete="off" noValidate onSubmit={handleLogIn}>
-          <TextField onChange={handleChange} onBlur={handleBlur} value={user} name="user" error={errors?.user} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />
-          <TextField onChange={handleChange} onBlur={handleBlur} value={pass} name="pass" error={errors?.pass} helperText={errors?.pass} label="Contraseña" variant="outlined" size="small" fullWidth />
+          <TextField onChange={handleChange} value={user} name="user" error={errors?.user ? true : false} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />
+          <TextField onChange={handleChange} value={pass} name="pass" error={errors?.pass ? true : false} helperText={errors?.pass} label="Contraseña" variant="outlined" size="small" fullWidth />
           <Button type="submit" variant="contained" color="primary" fullWidth >Entrar</Button>
           <Button variant="contained" color="primary" onClick={() => history.push('/auth/register')} fullWidth>Registrarse</Button>
           <Button variant="outlined" color="primary" onClick={() => history.push('/auth/recover')} fullWidth>Recuperar Contraseña</Button>
