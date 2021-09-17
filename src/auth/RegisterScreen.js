@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../assets/img/logoD.png';
 import { Button, TextField } from '@material-ui/core';
 import { useFormu } from '../hooks/useFormu';
 import { useHistory } from 'react-router-dom';
@@ -23,7 +22,7 @@ export const RegisterScreen = () => {
   return (
     <section className="login">
       <aside className="login-content">
-        <img src={logo} title="logo" alt="logo"/>
+        <img src="./assets/img/logo.png" title="logo" alt="logo"/>
         <h3>REGISTRO</h3>
         <form autoComplete="off" noValidate onSubmit={handleRegister}>
           <TextField onChange={handleChange} value={user} name="user" error={errors?.user} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />

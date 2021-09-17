@@ -1,6 +1,5 @@
 import React from 'react';
 import './authStyle.css';
-import logo from '../assets/img/logoD.png';
 import { Button, TextField } from '@material-ui/core';
 import { useFormu } from '../hooks/useFormu';
 import { useHistory } from 'react-router-dom';
@@ -32,11 +31,9 @@ export const LoginScreen = () => {
   }
 
   return (
-    <section className="login">
+    <section className="login" style={{background: 'no-repeat center/cover url(./assets/img/login.jpg)'}}>
       <aside className="login-content">
-        <img src={`${process.env.PUBLIC_URL}/assets/img/logo2.png`} title="logo env.public" alt="imagen 2"/>
-        <img src="./assets/img/logo2.png" title="logo public" alt="log2o" />
-        <img src={logo} title="logo" title="logo src" alt="logo" />
+        <img src="./assets/img/logo.png" title="logo public" alt="log2o" />
         <h3>MI CUENTA</h3>
         <form autoComplete="off" noValidate onSubmit={handleLogIn}>
           <TextField onChange={handleChange} value={user} name="user" error={errors?.user ? true : false} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />

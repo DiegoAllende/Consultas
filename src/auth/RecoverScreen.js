@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../assets/img/logoD.png';
 import { Button, TextField } from '@material-ui/core';
 import { useFormu } from '../hooks/useFormu';
 import { useHistory } from 'react-router-dom';
@@ -23,7 +22,7 @@ export const RecoverScreen = () => {
   return (
     <section className="login">
       <aside className="login-content">
-        <img src={logo} title="logo" alt="logo"/>
+        <img src="./assets/img/logo.png" title="logo" alt="logo"/>
         <h3>RECUPERAR CONTRASEÑA</h3>
         <form autoComplete="off" noValidate onSubmit={handleRecover}>
           <TextField onChange={handleChange} value={pass} name="pass" error={errors?.pass} helperText={errors?.pass} label="Correo" variant="outlined" size="small" fullWidth />
