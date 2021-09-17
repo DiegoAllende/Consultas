@@ -34,9 +34,9 @@ export const LoginScreen = () => {
   return (
     <section className="login">
       <aside className="login-content">
-        {/* <img src={`${process.env.PUBLIC_URL}/assets/img/logoD.png`} alt="imagen 2"/> */}
-        {/* <img src='../assets/img/logoD.png' title="logo2" /> */}
-        <img src={logo} title="logo" alt="logo" />
+        <img src={`${process.env.PUBLIC_URL}/assets/img/logo2.png`} title="logo env.public" alt="imagen 2"/>
+        <img src="./assets/img/logo2.png" title="logo public" alt="log2o" />
+        <img src={logo} title="logo" title="logo src" alt="logo" />
         <h3>MI CUENTA</h3>
         <form autoComplete="off" noValidate onSubmit={handleLogIn}>
           <TextField onChange={handleChange} value={user} name="user" error={errors?.user ? true : false} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />
