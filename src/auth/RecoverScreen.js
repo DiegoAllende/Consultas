@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, TextField } from '@material-ui/core';
-import { useFormu } from '../hooks/useFormu';
+import { useFormu } from '../hooksReact/hooks/useFormu';
 import { useHistory } from 'react-router-dom';
 
 export const RecoverScreen = () => {
@@ -20,7 +20,7 @@ export const RecoverScreen = () => {
   }
 
   return (
-    <section className="login">
+    <section className="login" style={{background: 'no-repeat center/cover url(./assets/img/login.jpg)'}}>
       <aside className="login-content">
         <img src="./assets/img/logo.png" title="logo" alt="logo"/>
         <h3>RECUPERAR CONTRASEÑA</h3>

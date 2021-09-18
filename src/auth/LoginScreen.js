@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './authStyle.css';
 import { Button, TextField } from '@material-ui/core';
-import { useFormu } from '../hooks/useFormu';
+import { useFormu } from '../hooksReact/hooks/useFormu';
 import { useHistory } from 'react-router-dom';
+import { AuthContext } from '../hooksReact/context/AuthContext';
 
 export const LoginScreen = () => {
+  const history = useHistory();
+  const {login} = useContext(AuthContext);
+
   const InitialFormu = { user: '', pass: '' };
 
   const validationsForm = (formu) => {
@@ -21,13 +25,13 @@ export const LoginScreen = () => {
     return errorsAux;
   }
 
-  const history = useHistory();
   const { formu, errors, handleChange } = useFormu(InitialFormu, validationsForm);
   const { user, pass } = formu;
 
   const handleLogIn = (e) => {
     e.preventDefault();
     console.log("formu: ", formu);
+    login(formu);
   }
 
   return (
