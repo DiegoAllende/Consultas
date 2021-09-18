@@ -7,13 +7,13 @@ import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
 
 export const AppRouter = () => {
-  const {auth} = useContext(AuthContext)
+  const {auhtState} = useContext(AuthContext)
   return (
     <HashRouter>
       <div>
         <Switch>
-          <PublicRouter isAuthenticated={auth.logged} path="/auth" component={AuthRouter}/>
-          <PrivateRouter isAuthenticated={auth.logged} path="/" component={PagesRouter}/>
+          <PublicRouter isAuthenticated={auhtState.logged} path="/auth" component={AuthRouter}/>
+          <PrivateRouter isAuthenticated={auhtState.logged} path="/" component={PagesRouter}/>
           <Redirect to="/auth" />
         </Switch>
       </div>

@@ -6,10 +6,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../hooksReact/context/AuthContext';
+import { types } from '../../hooksReact/types/types';
 
 export const Menu = () => {
 
-  const {logout} = useContext(AuthContext)
+  const {authDispatch} = useContext(AuthContext)
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorE2, setAnchorE2] = React.useState(null);
@@ -39,6 +40,11 @@ export const Menu = () => {
     setAnchorE3(null);
   };
 
+  const logOut = () => {
+    localStorage.removeItem('dataUSer');
+    authDispatch({type: types.logout})
+  }
+
   return (
     <div>
       <AppBar position="static">
@@ -57,7 +63,7 @@ export const Menu = () => {
               Mantenimiento
             </Button>
           </Box>
-          <Button color="inherit" onClick={logout}>LogOut</Button>
+          <Button color="inherit" onClick={ logOut }>LogOut</Button>
         </Toolbar>
       </AppBar>
       <Menu2

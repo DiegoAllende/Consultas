@@ -4,10 +4,11 @@ import { Button, TextField } from '@material-ui/core';
 import { useFormu } from '../hooksReact/hooks/useFormu';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../hooksReact/context/AuthContext';
+import { types } from '../hooksReact/types/types';
 
 export const LoginScreen = () => {
   const history = useHistory();
-  const {login} = useContext(AuthContext);
+  const {authDispatch} = useContext(AuthContext);
 
   const InitialFormu = { user: '', pass: '' };
 
@@ -31,7 +32,8 @@ export const LoginScreen = () => {
   const handleLogIn = (e) => {
     e.preventDefault();
     console.log("formu: ", formu);
-    login(formu);
+    localStorage.setItem('dataUSer', JSON.stringify(formu));
+    authDispatch({type: types.login, payload: formu});
   }
 
   return (

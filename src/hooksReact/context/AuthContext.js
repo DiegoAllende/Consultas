@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer, useState } from 'react'
+import { AuthReducer } from '../reducer/AuthReducer';
 
 export const AuthContext = createContext();
 
@@ -11,28 +12,11 @@ const initialState = {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(initialState);
-
-  const login = (dataLogin) => {
-    setAuth({
-      uid: null,
-      checking: false,
-      logged: true,
-      name: dataLogin.user,
-      email: dataLogin.pass,
-    });
-    localStorage.setItem('dataUSer', JSON.stringify(dataLogin));
-    return true;
-  }
-
-  const logout = () => {
-    localStorage.removeItem('dataUSer');
-    setAuth(initialState);
-}
+  const [auhtState, authDispatch] = useReducer(AuthReducer, initialState)
 
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
-        { children }
+    <AuthContext.Provider value={{ auhtState, authDispatch }}>
+      {children}
     </AuthContext.Provider>
-)
+  )
 }
