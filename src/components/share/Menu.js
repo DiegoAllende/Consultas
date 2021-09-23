@@ -5,6 +5,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { DATAUSER } from '../../data/constantes/ui/constAuth';
 import { AuthContext } from '../../hooksReact/context/AuthContext';
 import { types } from '../../hooksReact/types/types';
 
@@ -41,7 +42,7 @@ export const Menu = () => {
   };
 
   const logOut = () => {
-    localStorage.removeItem('dataUSer');
+    localStorage.removeItem(DATAUSER);
     authDispatch({type: types.logout})
   }
 

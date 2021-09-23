@@ -5,39 +5,38 @@ import { useFormu } from '../hooksReact/hooks/useFormu';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../hooksReact/context/AuthContext';
 import { types } from '../hooksReact/types/types';
+import { DATAUSER } from '../data/constantes/ui/constAuth';
+import { formuGroup, validators } from '../helpers/utilformu';
+
+const newFormu = formuGroup({
+  user: ['', [validators.requerid, validators.maxLength]],
+  pass: ['', [validators.requerid]],
+});
 
 export const LoginScreen = () => {
   const history = useHistory();
-  const {authDispatch} = useContext(AuthContext);
+  const { authDispatch } = useContext(AuthContext);
 
-  const InitialFormu = { user: '', pass: '' };
-
-  const validationsForm = (formu) => {
-    const errorsAux = {};
-
-    if (!formu.user.trim()) {
-      errorsAux.user = 'El campo usuario es obligatorio.';
-    }
-
-    if (!formu.pass.trim()) {
-      errorsAux.pass = 'El campo contraseña es obligatorio.';
-    }
-
-    return errorsAux;
-  }
-
-  const { formu, errors, handleChange } = useFormu(InitialFormu, validationsForm);
-  const { user, pass } = formu;
+  const { formu, handleChange, markAllTouched } = useFormu(newFormu);
+  const { values, errors } = formu;
+  const { user, pass } = values;
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    console.log("formu: ", formu);
-    localStorage.setItem('dataUSer', JSON.stringify(formu));
-    authDispatch({type: types.login, payload: formu});
+    if (formu.valid) {
+      if (values.user === 'diego' && values.pass === '123') {
+        localStorage.setItem(DATAUSER, JSON.stringify(formu.values));
+        authDispatch({ type: types.login });
+      } else {
+        console.log("Usuario no identificado.");
+      }
+    } else {
+      markAllTouched();
+    }
   }
 
   return (
-    <section className="login" style={{background: 'no-repeat center/cover url(./assets/img/login.jpg)'}}>
+    <section className="login" style={{ background: 'no-repeat center/cover url(./assets/img/login.jpg)' }}>
       <aside className="login-content">
         <img src="./assets/img/logo.png" title="logo public" alt="log2o" />
         <h3>MI CUENTA</h3>

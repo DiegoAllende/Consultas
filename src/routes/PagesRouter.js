@@ -6,6 +6,8 @@ import { FormaPagoPage } from '../pages/mantenimiento/FormaPagoPage'
 import { UsuarioPage } from '../pages/mantenimiento/UsuarioPage'
 
 export const PagesRouter = () => {
+  console.log("routerPages");
+
   return (
     <div>
       <Menu />
