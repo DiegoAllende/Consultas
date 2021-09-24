@@ -1,8 +1,11 @@
+import { VALID_FORMU } from "../data/constantes/ui/constValidFormu";
+
 export const formuGroup = (initialformu) => {
   let auxVlues = {};
   let auxError = {};
   let auxTouch = {};
   let auxValid = {};
+
   for (const key in initialformu) {
     auxVlues[key] = initialformu[key][0];
     auxError[key] = '';
@@ -10,18 +13,19 @@ export const formuGroup = (initialformu) => {
   }
 
   for (const key in initialformu) {
-    if(initialformu[key][1]){
+    if (initialformu[key][1]) {
       initialformu[key][1].forEach(item => {
-        auxValid[key] = {...auxValid[key], [item]: true};
+        let [a, b] = item();
+        auxValid[key] = { ...auxValid[key], [a]: b };
       });
     }
   }
 
   const resultFormu = {
-    values: {...auxVlues},
-    validations: {...auxValid},
-    errors: {...auxError},
-    touched: {...auxTouch},
+    values: { ...auxVlues },
+    validations: { ...auxValid },
+    errors: { ...auxError },
+    touched: { ...auxTouch },
     valid: false
   };
 
@@ -29,6 +33,6 @@ export const formuGroup = (initialformu) => {
 }
 
 export const validators = {
-  requerid: 'requerid',
-  maxLength: 'maxLength'
+  requerid: (val = '') => [VALID_FORMU.requerid, val],
+  maxLength: (val = 255) => [VALID_FORMU.maxLength, val],
 }

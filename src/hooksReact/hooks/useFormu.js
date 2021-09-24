@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { VALID_FORMU } from '../../data/constantes/ui/constValidFormu';
 
 export const useFormu = (initialState = {}) => {
+  //CREANDO ESTADO DEL FORMULARIO
   const [formu, setFormu] = useState(initialState);
 
+  //EVENTO CHANGE PARA CAMBIAR EL ESTADO DE CADA INPUT DEL FORMULARIO
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -18,6 +21,7 @@ export const useFormu = (initialState = {}) => {
     });
   }
 
+  //MARCAR TODOS LOS INPUTS COMO TACHADOS Y VERIFICAR SI HAY ERRORES EN TODOS LOS INPUTS
   const markAllTouched = () =>{
     const auxError = {};
     const auxTouch = {};
@@ -35,15 +39,15 @@ export const useFormu = (initialState = {}) => {
     });
   }
 
+  //VALIDAR SI TIENE VALIDACIONES UN INPUT
   const validationsName = (name, value) => {
     const nameError = {};
     let isError = false;
-    if (!value.trim() && formu.validations[name]?.requerid) {
-      // nameError[name] = `El campo ${formu.errorsName[name]} es obligatorio`;
-      nameError[name] = `El campo es obligatorio`;
+    if (formu.validations[name].hasOwnProperty(VALID_FORMU.requerid) && value.trim() === '') {
+      nameError[name] = `El campo ${formu.validations[name][VALID_FORMU.requerid]} es obligatorio`;
       isError = true;
-    } else if(value.trim().length > 10 && formu.validations[name]?.maxLength){
-      nameError[name] = `El campo máximo 10 caracteres`;
+    } else if(formu.validations[name].hasOwnProperty(VALID_FORMU.maxLength) && value.trim().length > formu.validations[name][VALID_FORMU.maxLength]){
+      nameError[name] = `El campo debe tener máximo ${formu.validations[name][VALID_FORMU.maxLength]} caracteres`;
       isError = true;
     } else {
       nameError[name] = "";
@@ -53,10 +57,12 @@ export const useFormu = (initialState = {}) => {
     return { nameError, formuError };
   }
 
+  //VALIDAR INPUT TACHADO
   const validationTouch = (name) => {
     return { [name]: true };
   }
 
+  //VALIDAR FORMULARIO GENERAL
   const validationFormu = (isError, name) => {
     let respValid = false;
 

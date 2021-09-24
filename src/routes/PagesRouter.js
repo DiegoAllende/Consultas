@@ -1,3 +1,4 @@
+import { Container } from '@material-ui/core'
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { Menu } from '../components/share/Menu'
@@ -11,14 +12,16 @@ export const PagesRouter = () => {
   return (
     <div>
       <Menu />
-      <main className="content-pages">
+
+      <Container maxWidth="lg" className="content-pages">
         <Switch>
           <Route exact path="/" component={DashboardScreen} />
           <Route exact path="/usuario" component={UsuarioPage} />
           <Route exact path="/forma-pago" component={FormaPagoPage} />
           <Redirect to="/" />
         </Switch>
-      </main>
+      </Container>
+      
     </div>
   )
 }

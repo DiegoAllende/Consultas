@@ -9,11 +9,12 @@ import { DATAUSER } from '../data/constantes/ui/constAuth';
 import { formuGroup, validators } from '../helpers/utilformu';
 
 const newFormu = formuGroup({
-  user: ['', [validators.requerid, validators.maxLength]],
-  pass: ['', [validators.requerid]],
+  user: ['', [validators.requerid, ()=>validators.maxLength(20)]],
+  pass: ['', [validators.requerid, ()=>validators.maxLength(8)]],
 });
 
 export const LoginScreen = () => {
+
   const history = useHistory();
   const { authDispatch } = useContext(AuthContext);
 
@@ -38,7 +39,7 @@ export const LoginScreen = () => {
   return (
     <section className="login" style={{ background: 'no-repeat center/cover url(./assets/img/login.jpg)' }}>
       <aside className="login-content">
-        <img src="./assets/img/logo.png" title="logo public" alt="log2o" />
+        <img src="./assets/img/logo.png" alt="logo" />
         <h3>MI CUENTA</h3>
         <form autoComplete="off" noValidate onSubmit={handleLogIn}>
           <TextField onChange={handleChange} value={user} name="user" error={errors?.user ? true : false} helperText={errors?.user} label="Usuario" variant="outlined" size="small" fullWidth />

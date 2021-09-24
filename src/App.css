@@ -13,7 +13,7 @@
 .content-pages{
   background-color: white;
   max-width: 1280px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 20px;
   border-radius: 20px;
 }

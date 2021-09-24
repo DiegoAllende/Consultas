@@ -27,8 +27,13 @@
 
 .login-content form{
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px;  No funciona en IE-11 */
+}
+
+.login-content form > *{
+  margin-bottom: 20px; /* Para solucionar el probla del gap*/
 }
 
 @media (max-width: 600px) {
